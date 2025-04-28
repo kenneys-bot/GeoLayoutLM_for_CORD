@@ -1,0 +1,49 @@
+Looking in indexes: https://mirrors.aliyun.com/pypi/simple
+Collecting nptyping==1.4.2
+  Using cached https://mirrors.aliyun.com/pypi/packages/8e/d5/3331d6fe411c0287ef4b028ded3355c4fc10956f4c0fbe5a4415fdd33dc8/nptyping-1.4.2-py3-none-any.whl (31 kB)
+Requirement already satisfied: numpy in /usr/local/lib/python3.8/dist-packages (1.22.3)
+Collecting opencv-python-headless==4.5.4.60
+  Using cached https://mirrors.aliyun.com/pypi/packages/43/49/b7be5ad0c5064140817a97b81083c7d842ba580d618ae44546ba7349e5a3/opencv_python_headless-4.5.4.60-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (47.6 MB)
+Collecting pytorch-lightning==1.5.10
+  Using cached https://mirrors.aliyun.com/pypi/packages/18/f1/f59b307f75db1886c96e396eec878501510677394868680b8d2b8b58c47c/pytorch_lightning-1.5.10-py3-none-any.whl (527 kB)
+Collecting omegaconf
+  Using cached https://mirrors.aliyun.com/pypi/packages/e3/94/1843518e420fa3ed6919835845df698c7e27e183cb997394e4a670973a65/omegaconf-2.3.0-py3-none-any.whl (79 kB)
+Requirement already satisfied: Pillow in /usr/local/lib/python3.8/dist-packages (9.1.0)
+Requirement already satisfied: six in /usr/local/lib/python3.8/dist-packages (1.16.0)
+Collecting tqdm
+  Using cached https://mirrors.aliyun.com/pypi/packages/d0/30/dc54f88dd4a2b5dc8a0279bdd7270e735851848b762aeb1c1184ed1f6b14/tqdm-4.67.1-py3-none-any.whl (78 kB)
+Collecting opencv-python==4.5.5.62
+  Using cached https://mirrors.aliyun.com/pypi/packages/9d/98/36bfcbff30da27dd6922ed73ca7802c37d87f77daf4c569da3dcb87b4296/opencv_python-4.5.5.62-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (60.4 MB)
+Collecting overrides==3.1.0
+  Using cached https://mirrors.aliyun.com/pypi/packages/ff/b1/10f69c00947518e6676bbd43e739733048de64b8dd998e9c2d5a71f44c5d/overrides-3.1.0.tar.gz (11 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting transformers
+  Using cached https://mirrors.aliyun.com/pypi/packages/51/51/b87caa939fedf307496e4dbf412f4b909af3d9ca8b189fc3b65c1faa456f/transformers-4.46.3-py3-none-any.whl (10.0 MB)
+Collecting seqeval==1.2.2
+  Using cached https://mirrors.aliyun.com/pypi/packages/9d/2d/233c79d5b4e5ab1dbf111242299153f3caddddbb691219f363ad55ce783d/seqeval-1.2.2.tar.gz (43 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting imagesize
+  Using cached https://mirrors.aliyun.com/pypi/packages/ff/62/85c4c919272577931d407be5ba5d71c20f0b616d31a0befe0ae45bb79abd/imagesize-1.4.1-py2.py3-none-any.whl (8.8 kB)
+Collecting timm
+  Using cached https://mirrors.aliyun.com/pypi/packages/6c/d0/179abca8b984b3deefd996f362b612c39da73b60f685921e6cd58b6125b4/timm-1.0.15-py3-none-any.whl (2.4 MB)
+Requirement already satisfied: tensorboard in /usr/local/lib/python3.8/dist-packages (2.8.0)
+Collecting isort==5.9.3
+  Using cached https://mirrors.aliyun.com/pypi/packages/c4/1d/f4e03047d6767e35c1efb13a280c1ef8b88807230f902da4cfc431a9f602/isort-5.9.3-py3-none-any.whl (106 kB)
+Collecting black==21.9b0
+  Using cached https://mirrors.aliyun.com/pypi/packages/d2/16/a92c999103bee1236dd93f703f3522217fe00bd97bd50ae3699c2d91e320/black-21.9b0-py3-none-any.whl (148 kB)
+Collecting ipdb
+  Using cached https://mirrors.aliyun.com/pypi/packages/0c/4c/b075da0092003d9a55cf2ecc1cae9384a1ca4f650d51b00fc59875fe76f6/ipdb-0.13.13-py3-none-any.whl (12 kB)
+Building wheels for collected packages: overrides, seqeval
+  Building wheel for overrides (setup.py): started
+  Building wheel for overrides (setup.py): finished with status 'done'
+  Created wheel for overrides: filename=overrides-3.1.0-py3-none-any.whl size=10187 sha256=a5a5c0b82da53f0c909f43e731e4f1d56f5e7ce35ff20dfe7c4b8051de44e368
+  Stored in directory: /root/.cache/pip/wheels/95/4b/ac/bb3d750eda227e9e023af638a336fba664af7998e4013f9c5f
+  Building wheel for seqeval (setup.py): started
+  Building wheel for seqeval (setup.py): finished with status 'done'
+  Created wheel for seqeval: filename=seqeval-1.2.2-py3-none-any.whl size=16180 sha256=1f2af6dd0c9f19651d9f463582016fd5e644678034feee454460b5258c38225f
+  Stored in directory: /root/.cache/pip/wheels/a6/c8/da/f399061da9623767fd33b29cf45c3ee6f05b2f0638418410b2
+Successfully built overrides seqeval
+Installing collected packages: seqeval, overrides, transformers, tqdm, timm, pytorch-lightning, opencv-python-headless, opencv-python, omegaconf, nptyping, isort, ipdb, imagesize, black
+Successfully installed black-21.9b0 imagesize-1.4.1 ipdb-0.13.13 isort-5.9.3 nptyping-1.4.2 omegaconf-2.3.0 opencv-python-4.5.5.62 opencv-python-headless-4.5.4.60 overrides-3.1.0 pytorch-lightning-1.5.10 seqeval-1.2.2 timm-1.0.15 tqdm-4.67.1 transformers-4.46.3
