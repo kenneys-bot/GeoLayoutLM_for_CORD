@@ -9,7 +9,18 @@ python preprocess_cord.py \
 --model_type [model type] 
 ```
 
+If you need CORD's dev dataset, here is another code:
+
+``````
+python preprocess_cord_v2.py \
+--inputpath /path/to/cord_data_path \
+--outputpath /path/to/output_cord_geo_path \
+--voca /path/to/tokenizer_path \
+--model_type [model type]
+``````
+
 Then, modify the code at the specified location below:
+
 ```
 # geolayoutlm/utils/__init__.py: line51 cfg.model.n_classes = 2 * 22 + 1 -->
 cfg.model.n_classes = 2 * 30 + 1
