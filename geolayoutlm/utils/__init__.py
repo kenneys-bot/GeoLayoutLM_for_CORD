@@ -6,8 +6,8 @@ from omegaconf import OmegaConf
 from omegaconf.dictconfig import DictConfig
 from pytorch_lightning.callbacks import ModelCheckpoint
 from pytorch_lightning.loggers.tensorboard import TensorBoardLogger
-# from pytorch_lightning.plugins import DDPPlugin
-from pytorch_lightning.strategies import DDPStrategy
+from pytorch_lightning.plugins import DDPPlugin
+# from pytorch_lightning.strategies import DDPStrategy
 
 
 def get_config(default_conf_file="configs/default.yaml"):
@@ -46,13 +46,26 @@ def _update_config(cfg):
     if cfg.dataset == "funsd":
         cfg.dataset_root_path = os.path.join(cfg.dataset_root_path, "funsd_geo")
         cfg.model.n_classes = 7
+
     elif cfg.dataset == "cord":
         cfg.dataset_root_path = os.path.join(cfg.dataset_root_path, "cord_geo")
         cfg.model.n_classes = 2 * 30 + 1
     elif cfg.dataset == "real_datasets":
         cfg.dataset_root_path = os.path.join(cfg.dataset_root_path, "real_datasets_geo")
         cfg.model.n_classes = 2 * 10 + 1
-    elif cfg.dataset == "xfund":
+    elif cfg.dataset == "xfund_zh":
+        cfg.model.n_classes = 7
+    elif cfg.dataset == "xfund_ja":
+        cfg.model.n_classes = 7
+    elif cfg.dataset == "xfund_es":
+        cfg.model.n_classes = 7
+    elif cfg.dataset == "xfund_fr":
+        cfg.model.n_classes = 7
+    elif cfg.dataset == "xfund_it":
+        cfg.model.n_classes = 7
+    elif cfg.dataset == "xfund_de":
+        cfg.model.n_classes = 7
+    elif cfg.dataset == "xfund_pt":
         cfg.model.n_classes = 7
     elif cfg.dataset == "buddie":
         cfg.model.n_classes = 2 * 65 + 1

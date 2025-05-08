@@ -6,8 +6,8 @@ import torch
 import torch.utils.data
 from overrides import overrides
 from pytorch_lightning import LightningModule
-# from pytorch_lightning.utilities.distributed import rank_zero_only
-from pytorch_lightning.utilities.rank_zero import rank_zero_only
+from pytorch_lightning.utilities.distributed import rank_zero_only
+# from pytorch_lightning.utilities.rank_zero import rank_zero_only
 from pytorch_lightning.loggers.tensorboard import TensorBoardLogger
 from seqeval.metrics import f1_score, precision_score, recall_score
 from transformers import BertTokenizer
@@ -20,7 +20,7 @@ import ipdb
 
 
 # TOKENIZER = BertTokenizer.from_pretrained("../hlf/bert-base-uncased", do_lower_case=True)
-TOKENIZER = BrosTokenizer.from_pretrained("../bros-base-uncased", do_lower_case=True)
+TOKENIZER = BrosTokenizer.from_pretrained("../bert-base-uncased", do_lower_case=True)
 
 class GeoLayoutLMVIEModule(BROSModule):
     def __init__(self, cfg):

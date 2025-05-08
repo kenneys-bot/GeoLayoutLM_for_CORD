@@ -5,8 +5,8 @@ import torch.utils.data
 from overrides import overrides
 from pytorch_lightning import LightningModule
 from pytorch_lightning.loggers.tensorboard import TensorBoardLogger
-# from pytorch_lightning.utilities.distributed import rank_zero_only
-from pytorch_lightning.utilities.rank_zero import rank_zero_only
+from pytorch_lightning.utilities.distributed import rank_zero_only
+# from pytorch_lightning.utilities.rank_zero import rank_zero_only
 from torch.optim import SGD, Adam, AdamW
 from torch.optim.lr_scheduler import LambdaLR
 

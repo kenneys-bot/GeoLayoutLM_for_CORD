@@ -1,7 +1,7 @@
 # For workspace name
 # The checkpoint file location to be saved: {workspace}/checkpoints/
 # The log file location to be saved: {workspace}/tensorboard_logs/
-workspace: ../result/funsd/
+workspace: output/funsd/
 
 dataset: funsd
 dataset_root_path: ../datasets/FUNDS/dataset/
@@ -19,7 +19,7 @@ model:
   max_prob_as_father_upperbound: false
 
 train:
-  batch_size: 2
+  batch_size: 4
   num_samples_per_epoch: 149
   max_seq_length: 512
   max_block_num: 150
@@ -47,10 +47,10 @@ train:
   val_interval: 1  # in epochs
 
 val:
-  batch_size: 1
+  batch_size: 2
   num_workers: 8
   limit_val_batches: 1.0
   dump_dir: results/
-  pretrained_best_type: labeling # labeling, linking
+  pretrained_best_type: linking # labeling, linking
 
 pretrained_model_file: ~

@@ -83,6 +83,8 @@ class PositionalEmbedding1D(nn.Module):
             )
         elif len(seq_size) == 3:
             b1, b2, b3 = seq_size
+            # import ipdb
+            # ipdb.set_trace()
             sinusoid_inp = pos_seq.view(b1, b2, b3, 1) * self.inv_freq.view(
                 1, 1, 1, self.demb // 2
             )

@@ -8,18 +8,18 @@ from transformers import BertTokenizer
 
 MAX_SEQ_LENGTH = 512
 MODEL_TYPE = "bert"
-VOCA = "/mnt/d/geolayoutlm/V000_20250311/bert-base-uncased"
+VOCA = "/public/home/lab70432/LWW_workspace/env_sources/geolayoutlm/hlf/bert-base-uncased"
 
 CLASSES = ["O", "HEADER", "QUESTION", "ANSWER"]
 CLASSES_VALID = ["HEADER", "QUESTION", "ANSWER"]
-INPUT_PATH = "/mnt/d/geolayoutlm/V000_20250311/datasets/FUNDS_v2/dataset"
+INPUT_PATH = "/public/home/lab70432/LWW_workspace/env_sources/geolayoutlm/FUNDS/dataset/"
 anno_dir = 'annotations'
 # if not os.path.exists(INPUT_PATH):
 #     os.system("wget https://guillaumejaume.github.io/FUNSD/dataset.zip")
 #     os.system("unzip dataset.zip")
 #     os.system("rm -rf dataset.zip __MACOSX")
 
-OUTPUT_PATH = "/mnt/d/geolayoutlm/V000_20250311/datasets/FUNDS_v2/dataset/funsd_geo"
+OUTPUT_PATH = "/public/home/lab70432/LWW_workspace/env_sources/geolayoutlm/FUNDS/dataset/funsd_geo"
 os.makedirs(OUTPUT_PATH, exist_ok=True)
 os.makedirs(os.path.join(OUTPUT_PATH, "preprocessed"), exist_ok=True)
 

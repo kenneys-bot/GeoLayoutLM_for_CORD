@@ -4,7 +4,7 @@
 workspace: ../output/buddie/
 
 dataset: buddie
-dataset_root_path: ../datasets/BUDDIE/buddie_geo/
+dataset_root_path: ../BUDDIE/buddie_geo/
 task: ee_el
 img_h: 768
 img_w: 768
@@ -23,7 +23,7 @@ model:
   max_prob_as_father_upperbound: false
 
 train:
-  batch_size: 4
+  batch_size: 1
   num_samples_per_epoch: 149
   max_seq_length: 512
   max_block_num: 150
@@ -35,7 +35,7 @@ train:
 
   clip_gradient_algorithm: norm
   clip_gradient_value: 1.0
-  num_workers: 8
+  num_workers: 4
 
   optimizer:
     method: adamw
@@ -51,7 +51,7 @@ train:
   val_interval: 1  # in epochs
 
 val:
-  batch_size: 2
+  batch_size: 1
   num_workers: 4
   limit_val_batches: 1.0
   dump_dir: ../results/

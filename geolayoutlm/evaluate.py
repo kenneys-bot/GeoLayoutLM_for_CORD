@@ -12,29 +12,17 @@ import cv2
 
 from lightning_modules.data_modules.vie_dataset import VIEDataset
 from model import get_model
-from utils import get_class_names, get_config
+from utils import get_class_names, get_config, get_label_map
 from seqeval.metrics import precision_score, recall_score, f1_score
 import time
 
-
-# color_classes = {
-#     'NUMBER_QUESTION': (79, 49, 0), 'NUMBER_ANSWER': (79, 49, 0),
-#     'SELL_QUESTION': (0, 255, 0), 'SELL_ANSWER': (0, 255, 0),
-#     'BUY_QUESTION': (255, 0, 0), 'BUY_ANSWER': (255, 0, 0),
-#     'DATE_QUESTION': (0, 0, 255), 'DATE_ANSWER': (0, 0, 255),
-#     'AMOUNT_QUESTION': (255, 0, 255), 'AMOUNT_ANSWER': (255, 0, 255)
-# }
-
-# FUNSD
-color_classes = {
-    'QUESTION': (0, 255, 0), 'HEADER': (0, 0, 255), 'ANSWER': (255, 0, 0), 'O': (102, 210, 243)
-}
 
 def main():
     start = time.perf_counter()
     start_load_model = start
 
-    mode = "val"
+    # mode = "val"
+    mode = "dev"
     cfg = get_config()
     if cfg[mode].dump_dir is not None:
         cfg[mode].dump_dir = os.path.join(cfg[mode].dump_dir, cfg.workspace.strip('/').split('/')[-1])
@@ -140,7 +128,7 @@ def main():
         print()
     # Visualize
     if len(cfg[mode].dump_dir) > 0:
-        visualize_tagging(cfg[mode].dump_dir)
+        # visualize_tagging(cfg[mode].dump_dir)
         visualize_linking(cfg[mode].dump_dir)
     cal_f1_score_by_label(cfg[mode].dump_dir)
    
@@ -182,6 +170,13 @@ def get_eval_kwargs_geolayoutlm_vie(dataset_root_path):
 
 
 def visualize_tagging(detail_path):
+    color_classes = {
+        'NUMBER_QUESTION': (79, 49, 0), 'NUMBER_ANSWER': (79, 49, 0),
+        'SELL_QUESTION': (0, 255, 0), 'SELL_ANSWER': (0, 255, 0),
+        'BUY_QUESTION': (255, 0, 0), 'BUY_ANSWER': (255, 0, 0),
+        'DATE_QUESTION': (0, 0, 255), 'DATE_ANSWER': (0, 0, 255),
+        'AMOUNT_QUESTION': (255, 0, 255), 'AMOUNT_ANSWER': (255, 0, 255)
+    }
     file_paths = glob(os.path.join(detail_path, "*_tagging.txt"))
     vis_dir = os.path.join(detail_path, 'vis_tagging')
     os.makedirs(vis_dir, exist_ok=True)
@@ -200,18 +195,17 @@ def visualize_tagging(detail_path):
                 blk_coord = [int(v) for v in blk_coord.split(',')]
                 blk_coord_dict[blk_id] = blk_coord
                 # draw labels
-                # if blk_class_name_1.split('-')[-1] == blk_class_name_2.split('-')[-1] and \
-                #         blk_class_name_1.split('-')[-1] != 'O' and \
-                #         blk_class_name_1.split('-')[-1] != 'other':
-                if blk_class_name_1.split('-')[-1] == blk_class_name_2.split('-')[-1]:
+                if blk_class_name_1.split('-')[-1] == blk_class_name_2.split('-')[-1] and \
+                        blk_class_name_1.split('-')[-1] != 'O' and \
+                        blk_class_name_1.split('-')[-1] != 'other':
                     cv2.rectangle(
                         img, (blk_coord[0], blk_coord[1]), (blk_coord[2], blk_coord[3]), \
                         color_classes[blk_class_name_1.split('-')[-1]], 2
                     )
-                    # cv2.putText(
-                    #     img, blk_class_name_1.split('-')[-1], (blk_coord[0], blk_coord[1] - 10), \
-                    #     cv2.FONT_HERSHEY_SIMPLEX, 0.5, color_classes[blk_class_name_1.split('-')[-1]], 2
-                    # )
+                    cv2.putText(
+                        img, blk_class_name_1.split('-')[-1], (blk_coord[0], blk_coord[1] - 10), \
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, color_classes[blk_class_name_1.split('-')[-1]], 2
+                    )
         vis_fn = os.path.splitext(os.path.basename(fp))[0] + '.png'
         cv2.imwrite(os.path.join(vis_dir, vis_fn), img)
 

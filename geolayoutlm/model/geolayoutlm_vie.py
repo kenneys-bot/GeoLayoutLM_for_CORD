@@ -34,7 +34,7 @@ class GeoLayoutLMVIEModel(nn.Module):
         ]:
             # backbone
             self.backbone_config = BrosConfig.from_json_file(self.model_cfg.config_json)
-            self.tokenizer = BrosTokenizer.from_pretrained("../bros-base-uncased", do_lower_case=True)
+            self.tokenizer = BrosTokenizer.from_pretrained("../bert-base-uncased", do_lower_case=True)
             self.geolayoutlm_model = GeoLayoutLMModel(self.backbone_config)
             # task head
             if self.model_cfg.use_inner_id:

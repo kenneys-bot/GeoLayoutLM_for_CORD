@@ -1,10 +1,3 @@
-'''
-Description: 
-Author: kenneys-bot
-Date: 2025-03-15 02:24:32
-LastEditTime: 2025-03-15 02:25:51
-LastEditors: kenneys-bot
-'''
 import faulthandler
 faulthandler.enable()
 
@@ -57,23 +50,19 @@ def main():
     # )
 
     trainer = Trainer(
-        # accelerator=cfg.train.accelerator,
-        accelerator='cpu',
-        # devices=torch.cuda.device_count(),
-        devices='auto',
+        accelerator=cfg.train.accelerator,
+        devices=torch.cuda.device_count(),
         max_epochs=cfg.train.max_epochs,
         gradient_clip_val=cfg.train.clip_gradient_value,
         gradient_clip_algorithm=cfg.train.clip_gradient_algorithm,
         callbacks=callbacks,
         plugins=plugins,
-        # sync_batchnorm=True,
-        sync_batchnorm=False,
+        sync_batchnorm=True,
         precision=16 if cfg.train.use_fp16 else 32,
         detect_anomaly=False,
         check_val_every_n_epoch=cfg.train.val_interval,
         logger=loggers, 
-        # benchmark=cfg.cudnn_benchmark,
-        benchmark=False,
+        benchmark=cfg.cudnn_benchmark,
         deterministic=cfg.cudnn_deterministic,
         limit_val_batches=cfg.val.limit_val_batches,
         log_every_n_steps=10,

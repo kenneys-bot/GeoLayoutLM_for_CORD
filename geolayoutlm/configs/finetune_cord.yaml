@@ -1,10 +1,10 @@
 # For workspace name
 # The checkpoint file location to be saved: {workspace}/checkpoints/
 # The log file location to be saved: {workspace}/tensorboard_logs/
-workspace: output/cord/
+workspace: ../output/cord/
 
 dataset: cord
-dataset_root_path: ../datasets/CORD/dataset
+dataset_root_path: ../
 task: ee_el
 img_h: 768
 img_w: 768
@@ -23,7 +23,7 @@ model:
   max_prob_as_father_upperbound: false
 
 train:
-  batch_size: 4
+  batch_size: 1
   num_samples_per_epoch: 149
   max_seq_length: 512
   max_block_num: 150
@@ -51,7 +51,7 @@ train:
   val_interval: 1  # in epochs
 
 val:
-  batch_size: 2
+  batch_size: 1
   num_workers: 4
   limit_val_batches: 1.0
   dump_dir: results/
